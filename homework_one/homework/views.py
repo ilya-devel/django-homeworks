@@ -21,3 +21,12 @@ def index(request):
     <p>This is simple home page for example</p>
 """
     return HttpResponse(html)
+
+
+@write_log
+def about(request):
+    html = """
+    <h1>ABOUT US</h1>
+    <p>This is simple about page for example</p>
+"""
+    return HttpResponse(html)
