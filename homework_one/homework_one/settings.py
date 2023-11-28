@@ -128,7 +128,7 @@ LOGGING = {
     'disable_existing_loggers': False,
     'formatters': {
         'verbose': {
-            'format': '{levelname}\t{asctime}\t{module:20}\t{process}\t{thread}\t{message}',
+            'format': '{levelname}\t{asctime}\t{module:20}\t{process:10}\t{thread:20}\t{message}',
             'style': '{',
         }
     },
@@ -148,10 +148,15 @@ LOGGING = {
             'handlers': ['console', 'file'],
             'level': 'INFO',
             },
-        'test_func': {
+        # 'test_func': {
+        #     'handlers': ['console', 'file'],
+        #     'level': 'DEBUG',
+        #     'propagate': True,
+        # },
+        'homework': {
             'handlers': ['console', 'file'],
             'level': 'DEBUG',
             'propagate': True,
-        }
+            },
         },
 }
