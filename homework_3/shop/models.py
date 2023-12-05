@@ -32,7 +32,7 @@ class Order(models.Model):
     customer = models.ForeignKey(Customer, on_delete=models.CASCADE)
     products = models.ManyToManyField(Product)
     full_price = models.DecimalField(max_digits=8, decimal_places=2, default=0)
-    create_date = models.DateTimeField(auto_now_add=True)
+    create_date = models.DateTimeField()
     is_done = models.BooleanField(default=False)
 
     def set_full_price(self, *args, **kwargs):
