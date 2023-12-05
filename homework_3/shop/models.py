@@ -38,7 +38,7 @@ class Order(models.Model):
     def set_full_price(self, *args, **kwargs):
         self.full_price = sum([product.price for product in self.products.all()])
         self.save()
-        
+
     def __str__(self) -> str:
         return f'''
 Order by {self.customer.name}:
