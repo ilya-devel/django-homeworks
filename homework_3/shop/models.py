@@ -1,6 +1,10 @@
 from django.db import models
 from django.core.validators import RegexValidator
 
+NEW_ROW = "\n\t"
+
+def change_symb(row: str):
+    return row.replace("\n", "\t")
 
 class Customer(models.Model):
     name = models.CharField(max_length=100)
@@ -40,13 +44,4 @@ class Order(models.Model):
         self.save()
 
     def __str__(self) -> str:
-        return f'''
-Order by {self.customer.name}:
-From: {self.create_date}
-Products list:
-\t{"\n\t".join(
-    [str(prod).replace('\n','\t') for prod in self.products.all()]
-    ) if self.products.all() else "empty list"}
-
-Full price: {self.full_price}
-'''
+        return f'Order by {self.customer.name}:\nFrom: {self.create_date}\nProducts list:\n\t{NEW_ROW.join([change_symb(str(prod)) for prod in self.products.all()]) if self.products.all() else "empty list"}\n\n\nFull price: {self.full_price}'
