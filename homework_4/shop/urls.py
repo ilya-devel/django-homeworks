@@ -3,6 +3,6 @@ from . import views
 
 
 urlpatterns = [
-    path('', views.TemplCustomers.as_view(), name='customer'),
-    path('<int:customer_id>/', views.TemplateInfoAboutOrders.as_view(), name='customer_orders'),
+    path('', views.TemplateProducts.as_view(), name='products'),
+    path('<int:product_id>/', views.TemplateInfoAboutProduct.as_view(), name='product_info'),
 ]
