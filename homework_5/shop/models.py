@@ -18,7 +18,7 @@ class Customer(models.Model):
     reg_data = models.DateTimeField(auto_now_add=True)
 
     def __str__(self) -> str:
-        return f'Customer: {self.name}\nEmail: {self.email}\nPhone: {self.phone_number}'
+        return f'{self.name}'
 
 
 class Product(models.Model):
@@ -30,7 +30,7 @@ class Product(models.Model):
     add_data = models.DateTimeField(auto_now_add=True)
 
     def __str__(self) -> str:
-        return f'Name: {self.name}\nPrice: {self.price}'
+        return f'{self.name}'
 
 
 class Order(models.Model):
